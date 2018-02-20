@@ -4,12 +4,12 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Simpleyyt
-subtitle: Yitao's Blog
-description: Too simple, sometimes naive.
-author: Simpleyyt
+title: Observation Point
+subtitle: Observe & Reflect
+description: A glimpse at the edge of the world
+author: Eric Wan
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
-language: zh-Hans
+language: en
 date_format: '%Y-%m-%d'
 
 # URL
@@ -70,8 +70,6 @@ plugins:
  - jekyll-sitemap
  - jekyll-feed
 
-alipay: http://p1.bpimg.com/567571/9a4a158daee8aa69.png
-
 # ---------------------------------------------------------------
 # Site Information Settings
 # ---------------------------------------------------------------
@@ -80,21 +78,21 @@ alipay: http://p1.bpimg.com/567571/9a4a158daee8aa69.png
 favicon: /assets/images/author.jpeg
 
 # Set default keywords (Use a comma to separate)
-keywords: "Jekyll, NexT, simpleyyt, yitao"
+keywords: "Jekyll, NexT"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: false
 
 # Specify the date when the site was setup
-since: 2015
+since: 2018
 
 # icon between year and author @Footer
-authoricon: heart
+authoricon: 
 
 # Footer `powered-by` and `theme-info` copyright
-copyright: true
+copyright: false
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -119,10 +117,10 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories/
-  #about: /about/
   archives: /archives/
+  categories: /categories/
   tags: /tags/
+  about: /about/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -152,9 +150,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -215,8 +213,8 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  GitHub: https://github.com/simpleyyt
-  知乎: http://www.zhihu.com/people/yaoyit
+  GitHub: https://github.com/ericwannn
+  LinkedIn: https://www.linkedin.com/in/eric-wan-38682478/
 
 
 # Social Links Icons
@@ -231,6 +229,7 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
+  LinkedIn: linkedin
 
 
 # Sidebar Avatar
@@ -375,15 +374,15 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
+baidu_analytics: 
 
 # Duoshuo ShortName
 #duoshuo_shortname:
 
 # Disqus
 disqus:
-  enable: true
-  shortname: simpleyyt
+  enable: false
+  shortname: 
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -417,7 +416,7 @@ changyan:
 ##  type: button
 
 # Share
-jiathis: true
+jiathis: false
 # Warning: JiaThis does not support https.
 #add_this_id:
 
@@ -426,10 +425,10 @@ jiathis: true
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification: hxyd6b4vb-uzYY6dVuzz4KXhScoVoEUjtiRWYSJVlrY
+# google_site_verification: hxyd6b4vb-uzYY6dVuzz4KXhScoVoEUjtiRWYSJVlrY
 
 # Google Analytics
-google_analytics: UA-67994495-1
+# google_analytics: UA-67994495-1
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
@@ -446,7 +445,7 @@ google_analytics: UA-67994495-1
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
-  ua_enable: true
+  ua_enable: false
   admin_enable: false
   user_id: 0
   #admin_nickname: Author
