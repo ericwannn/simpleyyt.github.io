@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Machine learning
+category: Machine Learning
 title: Practical Scikit-learn
 tagline: by Snail
 tags: 
