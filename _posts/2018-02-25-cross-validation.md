@@ -10,14 +10,14 @@ published: true
 ---
 # TL; DR
 
-* Cross-validation (CV), or k-fold CV is a model evaluation method, which is extensively used for fine-tuning parameters.
+* Cross-validation (CV), or k-fold CV is a model evaluation method, which is extensively used for fine-tuning models.
 * Advantages: 
     1. Make full use of data; 
-    2. Prevent overfitting;
+    2. Prevent overfitting[^1];
     3. Estimation on variance of model when applied to real data;
 * Disadvantages: 
     1. Computational Expensive;
-* Only splitting the whole data set into training/test set causes overfitting.
+* Only splitting the whole data set into training/test set may cause overfitting.
 * Implementation:
     1. Split the whole data set into one training set and one test set;
     2. Split the **training set** into *k* parts; 
@@ -27,13 +27,16 @@ published: true
         3. Validate the model on validation set and got one result;
     4. (*optional*) Average the total *k* results. 
 
+[^1]: To be more precise, overfitting cannot be completely avoided, but CV could help to identify overfitting.
+
 ---
 
 # Intuition & Motivation
 
-It's simple to know how to perform a CV but it could be a bit confusing to machine learning beginners. 
+
+It's simple to know how to perform a CV but the concepts could be a bit confusing to machine learning beginners. 
 That's because the intuition behind CV isn't that straight forward, and it evolves several times until what it looks like today.
-To understand why we need CV even though it's expensive and what if we don't use CV, we can have some previous versions of validation methods and what's their problems.
+To understand why we need CV even though it's expensive and what if we don't use CV, we can have a look at some previous versions of validation methods and what's their problems.
 
 ## Training/Test split
 
@@ -59,10 +62,10 @@ You may wanna look back to the steps to perform CV in TL;DR. We perform CV only 
 
 # Best practice 
 
-Below is the implementation of CV in `Scikit-learn`. The results are not perfect but it shows how CV is combined with 
+Below is the implementation of CV in `Scikit-learn`. The results are not perfect but it roughly shows how CV is combined with grid search method for parameters fine-tuning.
 
 
-```python
+~~~python
 from __future__ import print_function
 from __future__ import division
 import numpy as np
@@ -85,7 +88,10 @@ def fit_model(X, y):
     regressor = DecisionTreeRegressor(random_state=0)
     params = {"max_depth":range(3, 10)}
     scoring_func = make_scorer(r2_score, greater_is_better=True)
-    grid = GridSearchCV(estimator=regressor,  param_grid=params, scoring=scoring_func, cv=cross_validator)
+    grid = GridSearchCV(estimator=regressor,  
+                        param_grid=params, 
+                        scoring=scoring_func, 
+                        cv=cross_validator)
 
     grid = grid.fit(X, y)
 
@@ -102,5 +108,4 @@ print("Parameter 'max_depth' is {} for the optimal model.".format(optimal_reg.ge
 y_predict = optimal_reg.predict(X_test)
 r2 = r2_score(y_predict, y_test)
 print("Optimal model has r2 score: {:,.2f} on test data".format(r2))
-
-```
+~~~
