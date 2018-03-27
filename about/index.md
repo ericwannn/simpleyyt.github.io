@@ -1,6 +1,6 @@
 ---
-title: About
 layout: page
+type: about
 ---
 
 * **Siri engineer** at Apple Inc., \| *Hong Kong*
