@@ -22,6 +22,8 @@ So here are the problems:
 1. What's the difference between this two statements?   
 2. What does `const` constrains on each of them?
 
+<!--more-->
+
 # TL;DR
 
 ## Case 1
