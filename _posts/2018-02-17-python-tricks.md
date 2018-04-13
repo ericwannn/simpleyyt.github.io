@@ -37,17 +37,12 @@ The code seem fine because every time the function itself would initialize an em
 
 This is because the default value, which is an empty list here keeps using the same address in the memory. Whenever value is specified for `res`, it simply use that same list on the specific memory address. These three list, `l1`, `l2` and `l3` are thus actually manipulating the same list.
 
-The correct way to do this is as follows, which kinda avoid this problem.
+The correct way to do this is as follows, which would kinda avoid this problem.
 
 ```python
 def append_list(num, res=None):
     if res == None:
-        res = []
-    res.append(num)
-    return res
 
-l1 = append_list(1)
-l2 = append_list(2)
 l3 = append_list(3)
 
 print(l1)
@@ -55,7 +50,9 @@ print(l2)
 print(l3)
 ```
 
-# Function in a function
+<!--more-->
+
+# Python closure
 
 ```python
 def squares():
@@ -71,7 +68,23 @@ for square in squares():
 ```
 
 The result is surprising because the functions in another function will not check the value of `i` until it runs. So it only looks at the value of `i` when all three `make_square` functions are ready, at which moment the value of `i` is already `3`.
-One way to avoid the problem is to pass the index value explicitly to the function. 
+One way to avoid the problem is to pass the index value explicitly to the function.
+
+```python
+def squares():
+    res = []
+    for i in range(3):
+        def make_square(x, i=i):
+            return i ** x
+    res.append(make_square)
+    return res
+
+for square in squares():
+    print(square(2))
+```
+
+More details about closure in Python are available here.
+
 
 # Enumerate
 
