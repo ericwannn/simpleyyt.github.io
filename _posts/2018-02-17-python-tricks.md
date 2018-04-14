@@ -83,7 +83,7 @@ for square in squares():
     print(square(2))
 ```
 
-More details about closure in Python are available here.
+More details about closure in Python are available [here](https://ericwannn.github.io/2018/04/12/closure-python/).
 
 
 # Enumerate

@@ -10,12 +10,14 @@ published: true
 ---
 # Overview
 
-1. *Closure* is an important feature of Python which protect the variables defined in different places against poisoning each other. 
+1. *Closure* is an important feature of Python which protect the variables defined in different places against poisoning each other.
 2. An common usage of closure is defining an function within another function. The variables are thus defined in different scope, some covering others. So the tricks and traps with closure is talking about how can we make it convenient by using this features and avoid faults that could be caused by it.
-3. Closure could directly use variables defined outside of it and within the scope surrounding it. When it looks for an variable, it starts searching from local variables. When there is no local variables with the same name existed, it extends the searching space to the closure surrouding it.
+3. Closure could directly use variables defined outside of it and within the scope surrounding it. When it looks for an variable, it starts searching from local variables. When there is no local variables with the same name existed, it extends the searching space to the closure surrounding it.
 4. Using variables and assigning new values to variables are different. When it tries assign an value to a variable, it starts from local variables as well but it would create a local copy of it if the target doesn't exist.
 
-We will walk through these issues with examples.
+We will walk through these issues with some examples.
+
+<!--more-->
 
 ## Closure could *use* variables defined outside the scope
 
@@ -39,16 +41,16 @@ if __name__ == "__main__":
     main()
 ```
 
-This function is very simple. It sorts an array and checks another list meanwhile, where the numbers in the list are of higher priority and will be sorted first.
+This function is very simple. It sorts an array and checks another list at the same time, where the numbers in the list are of higher priority and will be sorted in the first order.
 The expected result would be as follows.
 
 ```python
 [2, 3, 5, 7, 1, 4, 6, 8]
 ```
 
-This function could work because `helper` is able to use the value of `group`. We don't need to bother passing `group` into `helper` even it is defined outside of it because the whole function `helper` function is defined within the environment of `sort_priority` where `group` is defined. 
+This function could work because `helper` is able to use the value of `group`. We don't need to bother passing `group` into `helper` even it is defined outside of it because the whole function `helper` function is defined within the environment of `sort_priority` where `group` is defined.
 
-## Problem occurs when closure *assign values* to variables outside of it.
+## Problem occurs when closure *assign values* to variables outside of it
 
 Say if we want this function to return a flag indicating whether it finds anything in `group` that shall be given high priority. We can simply add another boolean variable `found`.
 
@@ -135,9 +137,6 @@ class Sorter(object):
 def main():
     numbers = [8, 3, 1, 2, 5, 4, 7, 6]
     group = {2, 3, 5, 7}
-    # found = sort_priority3(numbers, group)
-    # print("found: %s" % found)
-    # print(numbers)
     sorter = Sorter(group)
     numbers.sort(key=sorter)
     print(sorter.found)
