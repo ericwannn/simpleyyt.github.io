@@ -23,6 +23,8 @@ Manacher algorithm came across to me recently which solves palindromic substring
 
 The problem isn't complicated. We need to find the number of substrings that are palindromic. Let's start by looking at a straight forward approach.
 
+<!--more-->
+
 ## Intuition
 
 We ain't gonna talk about brutal search approach because it's not scalable. A good starting point is *center expand approch*. 
