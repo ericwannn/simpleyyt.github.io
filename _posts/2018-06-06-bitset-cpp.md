@@ -14,6 +14,7 @@ According to cpp official reference
 > The class template bitset represents a fixed-size sequence of N bits. Bitsets can be manipulated by standard logic operators and converted to and from strings and integers. 
 
 Bitset is a powerful tool dealing with ordered binary series, i.e. an array containing either 1 or 0.
+<!--more-->
 
 ## initialization
 
