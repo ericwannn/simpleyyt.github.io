@@ -1,12 +1,11 @@
 ---
 layout: post
-category: data engineering 
+category: Data engineering 
 title: Intro to Pandas 
 tagline: by Snail
 tags: 
   - machine learning
   - data engineering
-  - programming 
 published: true
 ---
 
